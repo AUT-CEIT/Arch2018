@@ -80,7 +80,7 @@ begin
         ad_offset := to_integer(unsigned(ADD(4 downto 0)));
         
         if WEN = '1' then --writing
-            mem(ad_index)(ad_offset) <= DIN;
+            mem(ad_index)(ad_offset) := DIN;
         end if;
         
         --reading

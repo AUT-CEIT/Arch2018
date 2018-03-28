@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -37,7 +37,7 @@ entity SDRAM_Controller is
            WRorRD : in STD_LOGIC;
            MEMSTRB : in STD_LOGIC;
            DIN : in STD_LOGIC_VECTOR (7 downto 0);
-           DOUT : in STD_LOGIC_VECTOR (7 downto 0));
+           DOUT : out STD_LOGIC_VECTOR (7 downto 0));
 end SDRAM_Controller;
 
 architecture Behavioral of SDRAM_Controller is
@@ -72,7 +72,7 @@ begin
             end if;
         elsif WRorRD = '1' and MEMSTRB = '1' then -- Writing :)
             if ad < blocksize then
-                mem(ADD) := DIN;
+                mem(ad) := DIN;
             end if;
         end if;
     
