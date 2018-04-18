@@ -81,6 +81,7 @@ begin
         
         if WEN = '1' then --writing
             mem(ad_index)(ad_offset) := DIN;
+            tag(ad_index) := DIN(15 downto 8);
         end if;
         
         --reading
